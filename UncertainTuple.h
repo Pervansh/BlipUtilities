@@ -4,8 +4,6 @@
     #include <typeinfo>
 #endif
 
-#include <iostream>
-
 namespace blip {
 
 /**
