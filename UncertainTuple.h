@@ -64,20 +64,9 @@ void blip::UncertainTuple::addValues(unsigned int current, FirstType& first, Oth
     addValues(current + 1, other...);
 }
 
-void blip::UncertainTuple::addValues(unsigned int current) {}
-
 template<class FirstType, class... OtherTypes>
 void blip::UncertainTuple::getValues(unsigned int current, FirstType& first, OtherTypes&... other) {
     UncertainTupleContainer<FirstType>* container = static_cast<UncertainTupleContainer<FirstType>*>(adapters[current]);
     first = container->value;
     getValues(current + 1, other...);
-}
-
-void blip::UncertainTuple::getValues(unsigned int current) {}
-
-blip::UncertainTuple::~UncertainTuple() {
-    for (unsigned int i = 0; i < VALUE_COUNT; ++i) {
-        delete adapters[i];
-    }
-    delete adapters;
 }
